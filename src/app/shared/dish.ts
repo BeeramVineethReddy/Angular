@@ -1,3 +1,7 @@
+
+//shared is to supply the information to both menu and also dishdetails
+
+import {Comment} from './comment';
 export class Dish{
     id: string;
     name: string;
@@ -7,4 +11,5 @@ export class Dish{
     label: string;
     price: string;
     description: string;
+    comments : Comment[];
 }
