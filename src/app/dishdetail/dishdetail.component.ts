@@ -16,7 +16,7 @@ export class DishdetailComponent implements OnInit {
 
   commentForm: FormGroup;
   comment: Comment;
-
+  
   dish: Dish;
   dishIds: string[];
   prev: string;
@@ -72,6 +72,19 @@ export class DishdetailComponent implements OnInit {
 
 
   }
+  onSubmit() {
+    this.comment = this.commentForm.value;
+    this.comment.date = new Date().toISOString();
+    this.dish.comments.push(this.comment);
+    console.log(this.comment);
+    this.commentForm.reset({
+      author:'',
+      rating: 5,
+      comment:''
+    });
+    
+  }
+ 
 
   onValueChanged(data?: any){
     if(!this.commentForm) { return; }
